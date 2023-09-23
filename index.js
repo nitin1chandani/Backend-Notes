@@ -16,7 +16,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/route", (req, res) => {
-  let temp = addition(100);
+  let counter = req.query.counter;
+  let temp = addition(counter);
   var ans = "the sum is " + temp;
   res.send(ans);
 });
