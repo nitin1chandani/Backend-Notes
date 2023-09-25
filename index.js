@@ -1,15 +1,15 @@
 const express = require("express");
-
+const bodyParser = require("body-parser");
 const app = express();
 
 const port = 3000;
+app.use(bodyParser.json());
+// const middleware1 = (req, res, next) => {
+//   console.log("From the middleware", req.headers);
+//   next();
+// };
 
-const middleware1 = (req, res, next) => {
-  console.log("From the middleware", req.headers);
-  next();
-};
-
-app.use(middleware1);
+// app.use(middleware1);
 
 function addition(counter) {
   var sum = 0;
@@ -20,14 +20,19 @@ function addition(counter) {
 }
 
 app.get("/", (req, res) => {
-  res.send("hello world");
+  console.log(req.body);
+  res.send("Say hello to my backend");
 });
 
 app.get("/route", (req, res) => {
   let counter = req.query.counter;
-  let temp = addition(counter);
-  var ans = "the sum is " + temp;
-  res.send(ans);
+  if (counter !== undefined && counter < 10000) {
+    let temp = addition(counter);
+    var ans = "the sum is " + temp;
+    res.send(ans);
+  } else {
+    res.status(411).send("you have sent very large number");
+  }
 });
 
 app.get("/sum", (req, res) => {
