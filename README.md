@@ -36,3 +36,21 @@ Example : https://chat.openai.com/backend-api/conversation
 IMP -> Every HTTP request have these things -> URL, Route, Method
 
 Methods -> GET, POST, PUT, DELETE
+
+IMP - In the URL bar browsers doesn't allow anyone to hit post request.
+
+Headers
+-> Through Headers we can also send data to server from front end
+
+Body
+-> 95% of time you will send data through body, so this is the most preferrable way to send data to backend.
+
+Middlewares : Middlewares are most imp. They are the middleman between the routes and client.
+so actually what happen is when the request is made by user then that request is parsed
+from middlewares. So basically it is mostly use for authenticate the "request".
+Like the request which is coming from client side is authenticated request or not.
+
+So the middleware has the power to pass the request to the respective route or it can reject the request too
+, next() without this request will be rejected by the middlewares.
+
+-> way to register your middleware is pass it to app.use(middlewareFunction);
