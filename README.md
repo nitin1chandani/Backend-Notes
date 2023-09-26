@@ -66,3 +66,9 @@ Status Code : Http response status codes indicate whether a specific HTTP reques
      -> Redirection messages : 300 - 399
      -> Client error response: 400-499
      -> Server error response : 500 - 599
+
+Response Body -> Their are three ways to send response
+
+         1. Html
+         2. json
+         3. Simple text or string
